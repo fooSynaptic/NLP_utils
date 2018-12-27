@@ -1,7 +1,10 @@
 '''
-单例是一种设计模式，应用该模式的类只会生成一个实例。
 
-单例模式保证了在程序的不同位置都可以且仅可以取到同一个对象实例：如果实例不存在，会创建一个实例；如果已存在就会返回这个实例。因为单例是一个类，所以你也可以为其提供相应的操作方法，以便于对这个实例进行管理。
+Single case is one of the programing style, we employed single case to hadle classes with only one instance.
+
+For different position in code we can reach the only one object instance with the gurantee of Single case mode.
+In the case the instance not exists, the pattern will build a new instance, if exists, it will return directly.
+Single case is one kind of class.
 '''
 
 #使用函数装饰器实现单例

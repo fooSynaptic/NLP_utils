@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 
-MEDICAL_DB = '/Users/ajmd/code/gitrep/funNLP/data/医学词库/THUOCL_medical.txt'
+MEDICAL_DB = './data/THUOCL_medical.txt'
 
 
 def bleu(pred_tokens, label_tokens):

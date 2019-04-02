@@ -95,23 +95,23 @@ class corrector():
             else: pass
         #for token in tgt_tokens: print(token, candidates.get(token))
         return max(tgt_tokens, key = candidates.get) if tgt_tokens else None
+Optimizer = corrector(MEDICAL_DB)
 
-def testcase():       
-    Optimizer = corrector(MEDICAL_DB)
+def testcase():          
     candidates = ['性疾病', '血管疾病', '性肝病']
     for word in candidates:
         logging.info(Optimizer.correct(word))
-'''
 
+testcase()
 
-logging.info(Optimizer.distance('胃食管反*'))
-logging.info(Optimizer.distance('*子鉴定'))
-logging.info(Optimizer.distance('子鉴定'))
-logging.info(Optimizer.distance('囊恶性肿瘤'))
-logging.info(Optimizer.distance('他定类**'))
-logging.info(Optimizer.distance('*他定'))
-logging.info(Optimizer.distance('**他定'))
-'''
+logging.info(Optimizer.correct('胃食管反*'))
+logging.info(Optimizer.correct('*子鉴定'))
+logging.info(Optimizer.correct('子鉴定'))
+logging.info(Optimizer.correct('囊恶性肿瘤'))
+logging.info(Optimizer.correct('他定类**'))
+logging.info(Optimizer.correct('*他定'))
+logging.info(Optimizer.correct('**他定'))
+
 
 
 '''

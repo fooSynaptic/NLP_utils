@@ -6,7 +6,7 @@ from jieba import cut
 class speller():
     def __init__(self, corpus_path):
         words, self.CHARs = self.words(open(corpus_path).read())
-        self.WORDS = Counter(words)
+        self.WORDS = Counter(dict(zip(words, self.CHARs)))
 
     def words(self, text):
         text = 
@@ -46,5 +46,5 @@ class speller():
         return (e2 for e1 in self.edits1(word) for e2 in self.edits1(e1))
 
 
-Optimizer = speller('/Users/ajmd/Documents/content-title.txt')
-Optimizer.correction('习近平')
+Optimizer = speller('./data/content-title.txt')
+Optimizer.correction('郭家领导人')

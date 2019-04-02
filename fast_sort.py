@@ -16,14 +16,8 @@ def my_PARTITION(arr, p, r):
 	for j in range(p, r-1):
 		if arr[j] <= x:
 			i = i + 1
-			m=arr[j] 
-			arr[j]=arr[i] 
-			arr[i]=m
-
-
-	s = arr[r-1]
-	arr[r-1] = arr[i+1]
-	arr[i+1] = s
+			arr[i], arr[j] = arr[j], arr[i]			
+	arr[r-1], arr[i+1] = arr[i+1], arr[r-1]
 	
 	return i+1
 

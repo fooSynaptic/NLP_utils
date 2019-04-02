@@ -1,4 +1,4 @@
-# build fastsort alogrithm from scratch
+# fastsort alogrithm
 
 
 def quicksort(arr, p, r):

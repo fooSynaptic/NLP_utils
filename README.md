@@ -2,7 +2,7 @@
 Wrappers for NLP programming.
 
 
-# add edit distance for spell checking
+# add edit distance spell checking for Medical words
 
 **test case:**
 ```

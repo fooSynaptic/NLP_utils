@@ -12,10 +12,11 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 
-MEDICAL_DB = './data/THUOCL_medical.txt'
+#MEDICAL_DB = './data/THUOCL_medical.txt'
 
 
 def bleu(pred_tokens, label_tokens):
+    #k is the string length you want to pred
     if '*' not in pred_tokens: k = len(pred_tokens) - 1
     else: k = len(pred_tokens.replace('*', ''))
     len_pred, len_label = len(pred_tokens), len(label_tokens)
@@ -32,13 +33,14 @@ def bleu(pred_tokens, label_tokens):
 
 def EditDis(src, tgt):
     len1, len2 = len(src), len(tgt)
-    #print(len1, len2)
+    
     dp = np.zeros([len1, len2])
     #intializing
     for i in range(0, len1):
         for j in range(0, len2):
             dp[i][j] = float('inf')
     
+    #condition 1: from empty string to len-i or len-j, dp-val = i or j
     for i in range(0, len1):
         dp[i, 0] = i
     
@@ -95,15 +97,16 @@ class corrector():
             else: pass
         #for token in tgt_tokens: print(token, candidates.get(token))
         return max(tgt_tokens, key = candidates.get) if tgt_tokens else None
-Optimizer = corrector(MEDICAL_DB)
+
 
 def testcase():          
     candidates = ['性疾病', '血管疾病', '性肝病']
     for word in candidates:
         logging.info(Optimizer.correct(word))
 
+'''
 testcase()
-
+#Optimizer = corrector(MEDICAL_DB)
 logging.info(Optimizer.correct('胃食管反*'))
 logging.info(Optimizer.correct('*子鉴定'))
 logging.info(Optimizer.correct('子鉴定'))
@@ -111,5 +114,5 @@ logging.info(Optimizer.correct('囊恶性肿瘤'))
 logging.info(Optimizer.correct('他定类**'))
 logging.info(Optimizer.correct('*他定'))
 logging.info(Optimizer.correct('**他定'))
-
+'''
 

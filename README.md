@@ -50,6 +50,6 @@ labels = ['first', 'sec','third','first']
 model = Classifier(corpus, labels)
 print(model.infer('i want the first document'))
 ```
-- Infer result: `**first**`
+- Infer result: **first**
 
 

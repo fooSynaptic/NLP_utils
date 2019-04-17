@@ -2,9 +2,9 @@
 Wrappers for NLP programming.
 
 
-# add edit distance spell checking for Medical words
+# Add edit distance spell checking for Medical words
 
-**test case:**
+**Test case:**
 ```
 def testcase():          
     candidates = ['性疾病', '血管疾病', '性肝病']
@@ -23,7 +23,7 @@ logging.info(Optimizer.correct('**他定'))
 ```
 
 
-**result:**
+**Result:**
 ```
 Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 药源性疾病
 Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 心脑血管疾病
@@ -37,10 +37,10 @@ Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:112] INFO 头孢他定
 Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:113] INFO 头孢他定
 ```
 
-# add text multiple-classfication, use one vs other strategy
+# Add text multiple-classfication, use one vs other strategy
 - run `multiclass_sl.py`
 
-**result**
+**Result**
 ```
 corpus = ['This is the first document.', 'This is the second second document.', 'And the third one.', 'Is this the first document?']
 
@@ -50,6 +50,6 @@ labels = ['first', 'sec','third','first']
 model = Classifier(corpus, labels)
 print(model.infer('i want the first document'))
 ```
-- infer result: `first`
+- Infer result: `first`
 
 

@@ -38,7 +38,7 @@ Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:113] INFO 头孢他定
 ```
 
 # Add text multiple-classfication, use one vs other strategy
-- run `multiclass_sl.py`
+- run `python multiclass_sl.py`
 
 **Result**
 ```

@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 
-#MEDICAL_DB = './data/THUOCL_medical.txt'
+MEDICAL_DB = '/Users/ajmd/code/Py_utils/data/THUOCL_medical.txt'
 
 
 def bleu(pred_tokens, label_tokens):
@@ -33,27 +33,22 @@ def bleu(pred_tokens, label_tokens):
 
 def EditDis(src, tgt):
     len1, len2 = len(src), len(tgt)
-    
     dp = np.zeros([len1, len2])
     #intializing
     for i in range(0, len1):
         for j in range(0, len2):
             dp[i][j] = float('inf')
-    
     #condition 1: from empty string to len-i or len-j, dp-val = i or j
     for i in range(0, len1):
         dp[i, 0] = i
-    
     for j in range(0, len2):
         dp[0, j] = j
-
     for i in range(0, len1):
         for j in range(1, len2):
             if src[i] == tgt[j]:
                 flag = 0
             else:
                 flag = 1
-
             dp[i, j]=min(dp[i-1, j]+1,min(dp[i,j-1]+1,dp[i-1,j-1]+flag))
     return dp[len1-1, len2-1]
 
@@ -85,6 +80,7 @@ class corrector():
         return candidates
     
     def correct(self, word):
+        if not word: return
         candidates = self.candidate(word)
         #print('candidates:', candidates)
         min_dis, tgt_tokens = len(word), []
@@ -99,11 +95,13 @@ class corrector():
         return max(tgt_tokens, key = candidates.get) if tgt_tokens else None
 
 
-def testcase():          
-    candidates = ['性疾病', '血管疾病', '性肝病']
+def testcase():  
+    Optimizer = corrector(MEDICAL_DB)        
+    candidates = ['碘**','性疾病', '血管疾病', '性肝病']
     for word in candidates:
         logging.info(Optimizer.correct(word))
 
+#testcase()
 '''
 testcase()
 #Optimizer = corrector(MEDICAL_DB)

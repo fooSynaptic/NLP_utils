@@ -39,7 +39,7 @@ class Classifier():
             return vectorizer.fit_transform(sentence).toarray()
 
 
-
+'''
 corpus = ['This is the first document.', 'This is the second second document.', 'And the third one.', 'Is this the first document?']
 
 labels = ['first', 'sec','third','first']
@@ -47,4 +47,4 @@ labels = ['first', 'sec','third','first']
 #fit model
 model = Classifier(corpus, labels)
 print(model.infer('i want the first document'))
-
+'''

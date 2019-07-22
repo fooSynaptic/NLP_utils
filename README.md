@@ -3,6 +3,8 @@ Modules for NLP programming and machine learning implementation.
 
 
 # Add edit distance spell checking for Medical words
+- run `python edit_distance.py`
+- run `python spell.py`
 
 **Test case:**
 ```

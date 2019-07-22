@@ -1,5 +1,5 @@
 # Py_utils
-Wrappers for NLP programming.
+Modules for NLP programming and machine learning implementation.
 
 
 # Add edit distance spell checking for Medical words

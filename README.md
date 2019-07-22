@@ -53,3 +53,17 @@ print(model.infer('i want the first document'))
 - Infer result: **first**
 
 
+#Add classfication algorithm based on Naive bayes.
+- run `python bayesian.py`
+
+
+**Result**
+
+```
+If we start from state of 1
+The condition when 1 -> 2 -> S happend with prob of 0.04
+If we start from state of -1
+The condition when -1 -> 2 -> S happend with prob of 0.06
+The most likely feature of fearure_3 with f1 and f2 is -1
+```
+

@@ -53,7 +53,7 @@ print(model.infer('i want the first document'))
 - Infer result: **first**
 
 
-#Add classfication algorithm based on Naive bayes.
+# Add classfication algorithm based on Naive bayes.
 - run `python bayesian.py`
 
 

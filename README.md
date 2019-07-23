@@ -69,3 +69,85 @@ The condition when -1 -> 2 -> S happend with prob of 0.06
 The most likely feature of fearure_3 with f1 and f2 is -1
 ```
 
+# Add KMP algorithm for string mapping...
+- run `python KMP.py`
+
+- result:
+```
+acababaabcacabc
+abaabcac
+^
+incre i and j
+after incre 1 1
+acababaabcacabc
+ abaabcac
+ ^
+Move next...
+1 0
+acababaabcacabc
+ abaabcac
+ ^
+Move next...
+1 -1
+acababaabcacabc
+ abaabcac
+ ^
+incre i and j
+after incre 2 0
+acababaabcacabc
+  abaabcac
+  ^
+incre i and j
+after incre 3 1
+acababaabcacabc
+   abaabcac
+   ^
+incre i and j
+after incre 4 2
+acababaabcacabc
+    abaabcac
+    ^
+incre i and j
+after incre 5 3
+acababaabcacabc
+     abaabcac
+     ^
+Move next...
+5 1
+acababaabcacabc
+     abaabcac
+     ^
+incre i and j
+after incre 6 2
+acababaabcacabc
+      abaabcac
+      ^
+incre i and j
+after incre 7 3
+acababaabcacabc
+       abaabcac
+       ^
+incre i and j
+after incre 8 4
+acababaabcacabc
+        abaabcac
+        ^
+incre i and j
+after incre 9 5
+acababaabcacabc
+         abaabcac
+         ^
+incre i and j
+after incre 10 6
+acababaabcacabc
+          abaabcac
+          ^
+incre i and j
+after incre 11 7
+acababaabcacabc
+           abaabcac
+           ^
+incre i and j
+after incre 12 8
+The mapping stirng of S refer to p start from  4
+```

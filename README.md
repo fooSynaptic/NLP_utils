@@ -154,6 +154,7 @@ The mapping stirng of S refer to p start from  4
 
 
 # Add KD-tree for cluster algorithm
+- usage: `python ./ML/KD_tree.py`
 
 demo:
 ```
@@ -169,3 +170,4 @@ The levels denote the tree depth, same level means they stay in parallel,'
                  [[8 1]]
                  [[9 6]]
  ```
+ - You can try it with differnt test_data as well as more dimension

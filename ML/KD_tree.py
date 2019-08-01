@@ -21,6 +21,8 @@ class cluster:
         self.left_nodes = []
         self.right_nodes = []
         self.root_nodes = []
+        self.left = None
+        self.right = None
 
     def partition(self):
         for i in range(self.data.shape[0]):
@@ -49,6 +51,34 @@ class cluster:
         return np.array(self.root_nodes)
 
 
+def cluster_viewer(node, lv, tree):
+    #print(lv , tree)
+    if node:
+        print('\t'*lv, node.get_root())
+        if lv > len(tree)-1:
+            tree.append([node.get_root()])
+        else:
+            tree[lv].append(node.get_root())
+        if not node.get_left() is False:
+            cluster_viewer(node.left, lv+1, tree)
+        if not node.get_right() is False:
+            cluster_viewer(node.right, lv+1, tree)  
+
+    
+def KD_generation(node):
+    #print('Root', node.get_root())
+    #print('right:', node.get_right(),'left', node.get_left())
+    if not node.get_left() is False:
+        node.left = cluster(node.get_left())
+        node.left.partition()
+        KD_generation(node.left)
+    if not node.get_right() is False:
+        node.right = cluster(node.get_right())
+        node.right.partition()
+        KD_generation(node.right)
+
+
+
 def construct(data):
     #get the dimension of raw data
     n_features = Counter([len(x) for x in data]).most_common(1)[0][0]
@@ -63,24 +93,17 @@ def construct(data):
     cluster_cnt = 0
     
     curr = root
-    while curr.get_left() is not False and cluster_cnt < cluster_max:
-        print('partition left:left', curr.get_left(), '\n', \
-            'partition left:right', curr.get_right())
-        sub_cluster = cluster(curr.get_left())
-        sub_cluster.partition()
-        curr = sub_cluster
-        cluster_cnt += 1
-    #print('partition left:right', curr.get_right())
+    KD_generation(curr)
 
-    curr = root
-    while curr.get_right() is not False and cluster_cnt < cluster_max:
-        print('partition right:left', curr.get_left(), '\n', \
-            'partition right:right', curr.get_right())
-        sub_cluster = cluster(curr.get_right())
-        sub_cluster.partition()
-        curr = sub_cluster
-        cluster_cnt += 1
-    #print(curr.get_left())
+    #traverse root for visualization
+    viewer = root
+    Tree = []
+    print("The levels denote the tree depth, same level means they stay in parallel,'\n'\
+    and the next level denote the parent and child information, in our code,'\n \
+    for two stacked node, right node first and left node second...")
+    print(''.join(' level{}'.format(i)+'\t' for i in range(cluster_max)))
+    cluster_viewer(viewer, 0, Tree)
+    
 
 
 if __name__ == '__main__':

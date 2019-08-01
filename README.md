@@ -151,3 +151,26 @@ incre i and j
 after incre 12 8
 The mapping stirng of S refer to p start from  4
 ```
+
+
+# Add KD-tree for cluster algorithm
+
+demo:
+```
+partition left:left [[2 3]
+ [5 4]
+ [4 7]]
+ partition left:right [[9 6]
+ [8 1]
+ [7 2]]
+partition left:left [[2 3]]
+ partition left:right [[4 7]]
+partition right:left [[2 3]
+ [5 4]
+ [4 7]]
+ partition right:right [[9 6]
+ [8 1]
+ [7 2]]
+partition right:left [[8 1]]
+ partition right:right [[9 6]]
+ ```

@@ -157,20 +157,15 @@ The mapping stirng of S refer to p start from  4
 
 demo:
 ```
-partition left:left [[2 3]
- [5 4]
- [4 7]]
- partition left:right [[9 6]
- [8 1]
- [7 2]]
-partition left:left [[2 3]]
- partition left:right [[4 7]]
-partition right:left [[2 3]
- [5 4]
- [4 7]]
- partition right:right [[9 6]
- [8 1]
- [7 2]]
-partition right:left [[8 1]]
- partition right:right [[9 6]]
+The levels denote the tree depth, same level means they stay in parallel,'
+'    and the next level denote the parent and child information, in our code,'
+     for two stacked node, right node first and left node second...
+ level0  level1  level2  level3  level4  level5
+ False
+         [[5 4]]
+                 [[2 3]](right node of (5, 4))
+                 [[4 7]](left node of (5, 4))
+         [[7 2]]
+                 [[8 1]]
+                 [[9 6]]
  ```

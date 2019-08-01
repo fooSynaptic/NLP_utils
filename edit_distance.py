@@ -43,6 +43,7 @@ def EditDis(src, tgt):
         dp[i, 0] = i
     for j in range(0, len2):
         dp[0, j] = j
+        
     for i in range(0, len1):
         for j in range(1, len2):
             if src[i] == tgt[j]:

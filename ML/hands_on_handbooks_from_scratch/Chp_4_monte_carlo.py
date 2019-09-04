@@ -8,6 +8,7 @@ import numpy as np
 import random
 from random import randint
 from collections import Counter
+from scipy import stats
 
 
 
@@ -66,6 +67,38 @@ print("Whether the `pi` we computed is closed to math.pi?: {}".format(Possion_So
 '''
 1.3  蒙特卡洛采样
 '''
+# - Inverse Sampling
+def sampleExp(Lambda = 2,maxCnt = 50000):
+    ys = []
+    standardXaxis = []
+    standardExp = []
+    for i in range(maxCnt):
+        u = np.random.random()
+        y = -1/Lambda*np.log(1-u) #F-1(X) the inverse function
+        ys.append(y)
+    for i in range(1000):
+        t = Lambda * np.exp(-Lambda*i/100)
+        standardXaxis.append(i/100)
+        standardExp.append(t)
+    plt.plot(standardXaxis,standardExp,'r')
+    plt.hist(ys,1000,normed=True)
+    plt.show()
+
+
+# reject sampling
+def sampleReject(k=2, maxCnt = 1000):
+    #let's try to sample a norm distribution
+    samples = []
+    while True:
+        u = np.random.random()
+        alpha = stats.norm.cdf(u) / (2 * stats.uniform.cdf(u))
+        if u <= alpha:
+            samples.append(u)
+        if len(samples) > maxCnt:
+            break 
+    plt.hist(samples, bin= 10, normed=True)
+    plt.show()
+
 
 
 '''

@@ -202,7 +202,7 @@ class ID3Base:
 
 if __name__ == '__main__':
     _data, _x, _y = [], [], []
-    with open("/Users/ajmd/tutorial/MachineLearning/Zhihu/CvDTree/data.txt", "r") as file:
+    with open(<path>) as file:
         for line in file:
             _data.append(line.split(","))
     np.random.shuffle(_data)

@@ -87,28 +87,27 @@ def sampleExp(Lambda = 2,maxCnt = 50000):
 
 
 # reject sampling
-def sampleReject(k=3, maxCnt = 50000):
+def Importance_sampling(k=3, maxCnt = 50000):
     #let's try to sample a exp distribution with reject sampling
     
     #define simpler sampling
     def g():
         #we want a distribution close to exp, the Taylor expansion of e^x is nearly equal to 1 + x ...
         #let define this distribution as 2/3(x+1)
-        #we want its inverse distribution of how y generate x distribution
-        return pow((1+3*np.random.uniform()), 0.5) - 1
+        return np.exp(np.random.uniform()) / (2/3 * (1+np.random.uniform()))
 
     samples = []
-    while True:
-        u = g()
-        alpha = np.exp(np.random.uniform()) / u
-        if u <= alpha:
-            samples.append(u)
-        if len(samples) > maxCnt:
-            break 
+    while len(samples) < maxCnt:
+        samples.append(g())
+        #alpha = np.exp(np.random.uniform()) / u
+        #if u <= alpha:
+        #    samples.append(u)
+
     plt.hist(samples, bins = 10)
     plt.show()
+    #We will see the plot is close to exp distrbution
 
-sampleReject()
+Importance_sampling(maxCnt = 10000)
 
 
 

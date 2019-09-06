@@ -104,7 +104,7 @@ def Importance_sampling(k=3, maxCnt = 50000):
         #if u <= alpha:
         #    samples.append(u)
 
-    plt.hist(samples, bins = 10)
+    plt.hist(samples, 100,normed=True)
     plt.show()
     #We will see the plot is close to exp distrbution
 

@@ -10,7 +10,7 @@ Whether the `pi` we computed is closed to math.pi?: True
 - reverse sampling for exponent distribution:
 ![reverse sampling](https://github.com/fooSynaptic/Py_utils/blob/master/ML/srcs/images/chapter4_exp_distribution_by_inverse_sampling.png)
 - reject samplning for exponent distribution:
-![reject sampling](https://github.com/fooSynaptic/Py_utils/blob/master/ML/srcs/images/chapter4_exp_distribution_by_reject_sampling.png)
+![reject sampling](https://github.com/fooSynaptic/Py_utils/blob/master/ML/srcs/images/chapter4_exp_distribution_reject_sampling.png)
 
 
 - reference [AI算法工程师手册](http://www.huaxiaozhuan.com/)

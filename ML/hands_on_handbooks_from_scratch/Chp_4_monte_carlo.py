@@ -85,6 +85,7 @@ def sampleExp(Lambda = 2,maxCnt = 50000):
     plt.hist(ys,1000,normed=True)
     plt.show()
 
+sampleExp()
 
 # reject sampling
 def Importance_sampling(k=3, maxCnt = 50000):

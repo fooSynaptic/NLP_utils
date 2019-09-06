@@ -11,7 +11,6 @@ Whether the `pi` we computed is closed to math.pi?: True
 ![reverse sampling](https://github.com/fooSynaptic/Py_utils/blob/master/ML/srcs/images/chapter4_exp_distribution_by_inverse_sampling.png)
 - reject samplning for exponent distribution:
 ![reject sampling](https://github.com/fooSynaptic/Py_utils/blob/master/ML/srcs/images/chapter4_exp_distribution_by_reject_sampling.png)
-![NMT result](https://github.com/fooSynaptic/transfromer_NN_Block/blob/master/images/NMT_res_BLEU.png)
 
 
 - reference [AI算法工程师手册](http://www.huaxiaozhuan.com/)

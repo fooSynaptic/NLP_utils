@@ -36,7 +36,9 @@ def verterbi(initial_state, s_s_mat, s_o_mat):
             state_trans = [mat1[s_pre][t-1] * s_s_mat[s_pre][s] for s_pre in range(state_num)]
             mat1[s][t] = max([s_trans * s_o_mat[s][t] for s_trans in state_trans])
             mat2[s][t] = np.argmax(state_trans)
-
+    ### complexity can derived from the loop above. the Complexity fo Veterbi is Observe_time_steps * hidden_state_num * hidden_state_num
+    ### result to Ok*n^2    
+    
     
     ### decode
     #paths = [np.argmax([mat1[i][t] for i in range(state_num)]) for t in range(state_num-1, -1, -1)]

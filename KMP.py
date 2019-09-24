@@ -63,7 +63,6 @@ def KMP(S, p, verbose = False):
 S = 'acababaabcacabc'
 p = 'abaabcac'
 
-KMP(s, p, verbose = True)
 
 
 def mapping():
@@ -75,4 +74,4 @@ def mapping():
             print(p[:i])
 
 
-mapping()
+#mapping()

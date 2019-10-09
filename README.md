@@ -1,6 +1,13 @@
 # Py_utils
 Modules for NLP programming and machine learning implementation.
 
+***Machine learning from scratch***
+---
+- [Linear regression with parameter learn by Gradient descent.](https://github.com/fooSynaptic/Py_utils/blob/master/ML/regression/linearRegression.py)
+
+
+
+
 
 # Add edit distance spell checking for Medical words
 - run `python edit_distance.py`

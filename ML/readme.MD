@@ -17,11 +17,12 @@ Whether the `pi` we computed is closed to math.pi?: True
 
 
 ***Machine learning from scratch***
-- [Linear regression with parameter learn by Gradient descent.]()
+- [Linear regression with parameter learn by Gradient descent.](linearRegression.py)
 res (5 epoches):
 ```bash
 True W: [22.5, -43.3]
 Predict W: [array([ 21.46418781, -42.19876115])]
 ```
+*You may see the gradient may be pos or negative, but they all converged to zeros at last.*
 ![Loss and gradient upadte process](https://github.com/fooSynaptic/Py_utils/blob/master/images/linearRegression_GradientDescent.png)
 

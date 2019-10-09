@@ -17,7 +17,8 @@ Whether the `pi` we computed is closed to math.pi?: True
 
 
 ***Machine learning from scratch***
-- [Linear regression with parameter learn by Gradient descent.](linearRegression.py)
+- [Linear regression with parameter learn by Gradient descent.](https://github.com/fooSynaptic/Py_utils/blob/master/ML/regression/linearRegression.py)
+---
 res (5 epoches):
 ```bash
 True W: [22.5, -43.3]

@@ -88,10 +88,13 @@ for epoch in range(num_epochs):
 print("True W:", true_w)
 print('Predict W:', model.parameters())
 
-
+### visualization
+plt.subplot(121)
 plt.plot([i for i in range(len(grads))], grads)
-plt.show()
+plt.title("Gradient update process")
+plt.subplot(122)
 plt.plot([i for i in range(len(losses))], losses)
+plt.title("Losses")
 plt.show()
 
 

@@ -44,11 +44,11 @@ def logit(observeTimes, statePath):
     Transfeature, statePath_feature = 0, 0
     for i in range(len(transW)):
         for step in range(1, observeTimes):
-            Transfeature += transFunc(statePath[step-1], statePath[step], None, step, i)
+            Transfeature += transW[i] * transFunc(statePath[step-1], statePath[step], None, step+1, i)
 
     for j in range(len(stateW)):
         for step in range(0, observeTimes):
-            statePath_feature += stateFunc(statePath[step], None, step, j)
+            statePath_feature += stateW[j] * stateFunc(statePath[step], None, step+1, j)
 
     
     return np.exp(Transfeature + statePath_feature)
@@ -57,4 +57,5 @@ def logit(observeTimes, statePath):
 
 
 
-print(logit(3, [1, 2, 2]))
+print("According to the reference of 《统计学习方法》by 李航, reference answer is near exp(3.2)")
+print("Is this Solution right? ", np.isclose(logit(3, [1, 2, 2]), np.exp(3.2)))

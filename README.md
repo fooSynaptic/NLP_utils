@@ -1,9 +1,10 @@
-# Py_utils
-Modules for NLP programming and machine learning implementation.
+# NLP_utils
+Modules for NLP programming and machine learning implementation that i cannot live out with.
 
 ***Machine learning from scratch***
 ---
 - [Linear regression with parameter learn by Gradient descent.](https://github.com/fooSynaptic/Py_utils/blob/master/ML/regression/linearRegression.py)
+- [Conditional Random Field(CRF) probability solving Implementation.](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/PGM/CRF/crfProb_logit.py)
 
 
 

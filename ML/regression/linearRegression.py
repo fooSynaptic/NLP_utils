@@ -104,6 +104,7 @@ def train(num_epochs = 100, batch_size = 5, cliff = 0.5, Optimizer = 'batchGD', 
             os.chdir('../../images/')
             plt.savefig('{}grad&loss.png'.format(Optimizer))
             os.chdir(restore)
+        plt.close('all')
         #plt.show()
 
 
@@ -113,7 +114,6 @@ train(Optimizer="batchGD")
 
 ### stochastic gradient descent
 train(Optimizer="SGD")
-
 
 ### momentum
 train(Optimizer='momentum', Model=momentumLinreg)

@@ -71,3 +71,14 @@ def crfLogit(observeTimes, statePath):
 
 print("According to the reference of 《统计学习方法》by 李航, reference answer is near exp(3.2)")
 print("Is this Solution right? ", np.isclose(crfLogit(3, [1, 2, 2]), np.exp(3.2)))
+
+
+
+"""
+Matrix formulation for feature function
+The feature function contain formulation below:
+    r, c = rowDim, colDim
+    Mi,j denote the state i transfer to state j
+    here state means the label
+    So the time-Complexity of crf is k * n^2
+"""

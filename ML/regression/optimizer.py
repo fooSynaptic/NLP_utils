@@ -66,7 +66,7 @@ class AdaGradLinreg(linReg):
         # update adagrad vector
         self.S += grad ** 2
         # update parameters
-        adagrad = (lr / np.square(self.S + sigma)) * grad
+        adagrad = (lr / np.sqrt(self.S + sigma)) * grad
         self.w -= adagrad[:2]
         self.b -= adagrad[-1]
 
@@ -89,8 +89,8 @@ class RMSPropLinreg(linReg):
         self.S2 = self.gama*self.S2 + ((1-self.gama)*grad**2)[-1]
         
         # update parameters
-        self.w -= (lr / np.square(self.S1 + sigma)) * grad[:2]
-        self.b -= (lr / np.square(self.S2 + sigma)) * grad[-1]
+        self.w -= (lr / np.sqrt(self.S1 + sigma)) * grad[:2]
+        self.b -= (lr / np.sqrt(self.S2 + sigma)) * grad[-1]
 
 
 
@@ -109,8 +109,8 @@ class AdaDeltaLinreg(linReg):
         self.S2 = ro*self.S2 + ((1-ro)*grad**2)[-1]
 
         #fix grad
-        grad1 = np.square((self.delta[:2]+sigma)/(self.S1+sigma)) * grad[:2]
-        grad2 = np.square((self.delta[-1]+sigma)/(self.S2+sigma)) * grad[-1]
+        grad1 = np.sqrt((self.delta[:2]+sigma)/(self.S1+sigma)) * grad[:2]
+        grad2 = np.sqrt((self.delta[-1]+sigma)/(self.S2+sigma)) * grad[-1]
 
         # update parameters
         self.w -= grad1
@@ -127,21 +127,20 @@ class AdamLinreg(linReg):
         super(AdamLinreg, self).__init__(num_inputs)
         self.S = np.zeros(num_inputs+1)
         self.V = np.zeros(num_inputs+1)
+        self.t = 1
         
 
     def sgd_Adam(self, grad, lr, beta1=0.9, beta2=0.999, sigma=1E-6):
         self.V = beta1*self.V + (1-beta1)*grad
         self.S = beta2*self.S + (1-beta2) * grad**2
-
+        
         ### bias fix
-        """note: regarding the large timestep here, we do not implement bias fix
-        which because small `1-beta2` will make self.S overflow
-        """
-        #self.V /= 1-beta1
-        #self.S /= 1-beta2
+        Vfix = self.V / (1- beta1**self.t)
+        Sfix = self.S / (1- beta2**self.t)
+        self.t += 1
 
         # fix grad
-        grad = (lr*self.V)/(np.square(self.S)+sigma) * grad
+        grad = (lr*Vfix)/(np.sqrt(Sfix)+sigma) * grad
 
         # update parameters
         self.w -= grad[:2]

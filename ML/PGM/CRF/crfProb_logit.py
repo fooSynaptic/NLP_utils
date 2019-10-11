@@ -1,12 +1,24 @@
 # encoding = utf-8
 # /usr/bin/python3
+import numpy as np
+
 
 """
 Solve the probability computation Problem in CRF
-Input: CRF features and params
+Input: CRF features :{
+            trainsition function
+            state function
+        }
+
+        and params : {
+            weight of transition function
+            weight of state function
+
+        }
+        and state(label) sequences.
+
 Output: Condition probability of state sequence given observation
 """
-import numpy as np
 
 
 
@@ -37,7 +49,7 @@ def stateFunc(yi, x, i, miuIndex):
 
 
 
-def logit(observeTimes, statePath):
+def crfLogit(observeTimes, statePath):
     transW = [1, 0.6, 1, 1, 0.2]
     stateW = [1, 0.5, 0.8, 0.5]
 
@@ -58,4 +70,4 @@ def logit(observeTimes, statePath):
 
 
 print("According to the reference of 《统计学习方法》by 李航, reference answer is near exp(3.2)")
-print("Is this Solution right? ", np.isclose(logit(3, [1, 2, 2]), np.exp(3.2)))
+print("Is this Solution right? ", np.isclose(crfLogit(3, [1, 2, 2]), np.exp(3.2)))

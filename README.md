@@ -11,7 +11,7 @@ Modules for NLP programming and machine learning implementation that i cannot li
 
 
 
-# Add edit distance spell checking for Medical words
+# Update edit distance spell checking for Medical words
 - run `python edit_distance.py`
 - run `python spell.py`
 
@@ -32,8 +32,6 @@ logging.info(Optimizer.correct('他定类**'))
 logging.info(Optimizer.correct('*他定'))
 logging.info(Optimizer.correct('**他定'))
 ```
-
-
 **Result:**
 ```
 Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 药源性疾病
@@ -48,26 +46,8 @@ Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:112] INFO 头孢他定
 Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:113] INFO 头孢他定
 ```
 
-# Add text multiple-classfication, use one vs other strategy
-- run `python multiclass_sl.py`
-
-**Result**
-```
-corpus = ['This is the first document.', 'This is the second second document.', 'And the third one.', 'Is this the first document?']
-
-labels = ['first', 'sec','third','first']
-
-#fit model
-model = Classifier(corpus, labels)
-print(model.infer('i want the first document'))
-```
-- Infer result: **first**
-
-
-# Add classfication algorithm based on Naive bayes.
+# Update classfication based on Naive bayes.
 - run `python bayesian.py`
-
-
 **Result**
 
 ```
@@ -78,91 +58,7 @@ The condition when -1 -> 2 -> S happend with prob of 0.06
 The most likely feature of fearure_3 with f1 and f2 is -1
 ```
 
-# Add KMP algorithm for string mapping...
-- run `python KMP.py`
-
-- result:
-```
-acababaabcacabc
-abaabcac
-^
-incre i and j
-after incre 1 1
-acababaabcacabc
- abaabcac
- ^
-Move next...
-1 0
-acababaabcacabc
- abaabcac
- ^
-Move next...
-1 -1
-acababaabcacabc
- abaabcac
- ^
-incre i and j
-after incre 2 0
-acababaabcacabc
-  abaabcac
-  ^
-incre i and j
-after incre 3 1
-acababaabcacabc
-   abaabcac
-   ^
-incre i and j
-after incre 4 2
-acababaabcacabc
-    abaabcac
-    ^
-incre i and j
-after incre 5 3
-acababaabcacabc
-     abaabcac
-     ^
-Move next...
-5 1
-acababaabcacabc
-     abaabcac
-     ^
-incre i and j
-after incre 6 2
-acababaabcacabc
-      abaabcac
-      ^
-incre i and j
-after incre 7 3
-acababaabcacabc
-       abaabcac
-       ^
-incre i and j
-after incre 8 4
-acababaabcacabc
-        abaabcac
-        ^
-incre i and j
-after incre 9 5
-acababaabcacabc
-         abaabcac
-         ^
-incre i and j
-after incre 10 6
-acababaabcacabc
-          abaabcac
-          ^
-incre i and j
-after incre 11 7
-acababaabcacabc
-           abaabcac
-           ^
-incre i and j
-after incre 12 8
-The mapping stirng of S refer to p start from  4
-```
-
-
-# Add KD-tree for cluster algorithm
+# Update KD-tree for cluster algorithm
 - usage: `python ./ML/KD_tree.py`
 
 demo:

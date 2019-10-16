@@ -1,0 +1,128 @@
+train sample num: 450, test samples num: 50
+feature dimension:  (431250,)
+Epochs:  0
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.31it/s]
+Epochs:  1
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.15it/s]
+Epochs:  2
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.37it/s]
+Epochs:  3
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.43it/s]
+Epochs:  4
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:04<00:00,  5.78it/s]
+Epochs:  5
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:04<00:00,  6.49it/s]
+Epochs:  6
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:04<00:00,  6.46it/s]
+Epochs:  7
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.36it/s]
+Epochs:  8
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:05<00:00,  6.47it/s]
+Epochs:  9
+100%|███████████████████████████████████████████████████████████████████████████████████| 450/450 [01:04<00:00,  6.47it/s]
+src:  author author author author author author author author title title title title title title publisher publisher date
+tgt:  author author author author author author author author title title title title title title publisher publisher date
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1145: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples.
+  'recall', 'true', average, warn_for)
+src:  author author author author author author author author author author author author author title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle date
+tgt:  author author author author author author author author author author author author author title title title title title title title booktitle booktitle booktitle booktitle booktitle title title title title title journal journal date
+src:  author author author author title title title title title booktitle booktitle
+tgt:  author author author author title title title title title booktitle booktitle
+src:  author author date title publisher publisher publisher location location
+tgt:  author author date title publisher publisher publisher location location
+src:  author author author author author author author date title title title title title title title title title title title booktitle booktitle volume pages
+tgt:  author author author author author author author date title title title title title title title title title title title booktitle booktitle volume pages
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1143: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+src:  author author date title title title title title title title title title title journal journal journal journal notenote
+tgt:  author author title title title title title title title title title title title journal journal journal journal note note
+src:  author author author author author date title title title title title title title journal journal volume volume pages pages
+tgt:  author author author author author date title title title title title title title journal journal volume volume pages pages
+src:  author author author author author author title title title title title title title journal journal journal journaljournal volume pages date date
+tgt:  author author author author author author title title title title title title title journal journal journal journaljournal volume pages date date
+src:  institution institution institution title title title location location date
+tgt:  author title title title title title location location date
+src:  author author author author author author author author author author author title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages date date
+tgt:  author author author author author author author author author author author title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages date date
+src:  author author author title title title booktitle booktitle booktitle booktitle volume volume date date pages
+tgt:  author author author title title title journal journal journal journal journal volume volume volume pages
+src:  author author date title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle
+tgt:  author author date title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle
+src:  author author date title title title title title title title title title title journal journal journal journal volume
+tgt:  author author date title title title title title title title title title title journal journal journal journal volume
+src:  author author date title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages publisher publisher location location location
+tgt:  author author date title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages publisher publisher location location location
+src:  author author title title title title journal journal volume date
+tgt:  author author title title title title journal journal volume date
+src:  author author author author author title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages date
+tgt:  author author author author author title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages date
+src:  author author author author author date title title title title title title tech tech institution institution institution institution institution institution
+tgt:  author author author author author date title title title title title title tech tech institution institution institution institution institution institution
+src:  author author author author author author author title title title title title title title title title booktitle booktitle pages pages date
+tgt:  author author author author author author author title title title title title title title title title booktitle booktitle pages pages date
+src:  author author date title title title title title title journal volume volume pages
+tgt:  author author date title title title title title title journal volume volume pages
+src:  author author author author author author date title title title title title journal journal journal journal volumevolume volume volume pages
+tgt:  author author author author author author date title title title title title journal journal journal journal volumevolume volume volume pages
+src:  author author author date title title title title title title booktitle booktitle volume volume pages
+tgt:  author author author date title title title title title title booktitle booktitle volume volume pages
+src:  author author author author author author author author date title title title title title title title journal journal journal pages pages
+tgt:  author author author author author author author author date title title title title title title title journal journal volume pages pages
+src:  author author author author author title title title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle volume volume pages pages date
+tgt:  author author author author author title title title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle volume volume pages pages date
+src:  author author author author author author author title title title title title journal journal journal journal volume pages date
+tgt:  author author author author author author author title title title title title journal journal journal journal volume pages date
+src:  author author title title title title title title title title title title title journal journal journal journal journal pages pages date
+tgt:  author author title title title title title title title title title title title title title title title title pagespages date
+src:  author author author author author title title title title title journal journal journal volume pages date date
+tgt:  author author author author author title title title title title journal journal journal volume pages date date
+src:  author author author date title title title title title title title title title title title title editor editor editor editor editor editor editor editor editor editor editor booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle location location publisher publisher publisher pages pages
+tgt:  author author author date title title title title title title title title title title title title editor editor editor editor editor editor editor editor editor editor editor title title title title title title title title title title title title title title title title pages pages
+src:  author author author author author title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle editor editor editor pages pages publisher publisher date
+tgt:  author author author author author title title title title title title title title title title title title title editor editor editor editor pages pages publisher publisher date
+src:  author author author date title title title title note note note journal journal journal journal journal journal journal journal journal journal
+tgt:  author author author date title title title title title title title title title title title title title booktitle booktitle booktitle booktitle
+src:  author author author title title title title title journal journal journal volume pages date
+tgt:  author author author title title title title title journal journal journal volume pages date
+src:  author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author authorauthor author author author author author title title title title title title title title title title title title title title title title title journal journal journal journal volume pages date
+tgt:  author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author author authorauthor author author author author author title title title title title title title title title title title title title title title title editor editor editor editor editor volume pages date
+src:  author author author author author title title title title title title title title tech tech tech institution institution date
+tgt:  author author author author author author author author title title title title title tech tech tech institution institution date
+src:  author author author author author date title title title title title title title title title title journal journaljournal journal journal journal journal volume pages
+tgt:  author author author author author date title title title title title title title title title title booktitle booktitle journal journal journal journal journal volume pages
+src:  author author author title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle publisher location date
+tgt:  author author author title title title title title title title title title title title title title title title title title title publisher location date
+src:  author author date title title title title title journal journal volume pages
+tgt:  author author date title title title title title journal journal volume pages
+src:  author author date title title title title title title journal journal journal journal volume pages
+tgt:  author author date title title title title title title journal journal journal journal volume pages
+src:  author author author author author title title title title title title title title title title journal journal journal volume pages pages date
+tgt:  author author author author author title title title title title title title title title title editor editor journal volume pages pages date
+src:  author author author title title title title title title title title title date journal journal journal journal note note
+tgt:  author author author title title title title title title title title title date journal journal journal journal note note
+src:  author author title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitlebooktitle booktitle booktitle volume volume booktitle booktitle booktitle booktitle booktitle booktitle pages pages publisher date date
+tgt:  author author title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitlebooktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pagespublisher date date
+src:  author author author author author author author title title title title title title title title title title title journal journal journal journal journal journal volume pages date date
+tgt:  author author author author author author author title title title title title title title title title title title journal journal journal journal journal journal volume pages date date
+src:  author author author title title title title title title journal journal journal volume pages date
+tgt:  author author author title title title title title title journal journal journal volume pages date
+src:  author author author author author date title title title title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages location location publisher publisher
+tgt:  author author author author author date title title title title title title title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages location location publisher publisher
+src:  author author author author author author title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle date date
+tgt:  author author author author author author title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle date date
+src:  author author author title title title title title title title title title title journal journal journal journal date date
+tgt:  author author author title title title title title title title title title title journal journal journal journal volume date
+src:  author author author author author author author title title title title title title title title title title title title title booktitle booktitle volume date date
+tgt:  author author author author author author author title title title title title title title title title title title title title journal journal volume date date
+src:  author author author author author author date title title title title title title title editor editor editor editor editor editor editor booktitle booktitle booktitle pages pages location publisher
+tgt:  author author author author author author date title title title title title title title editor editor editor editor editor editor editor booktitle booktitle booktitle pages pages location publisher
+src:  author author author author author author author author date title title title title title title journal journal journal journal journal volume pages
+tgt:  author author author author author author author author date title title title title title title journal journal journal journal journal volume pages
+src:  author author author author author author date title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages location location
+tgt:  author author author author author author date title title title title title title title booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle pages pages location location
+src:  author author author author author author author author author author title title title title editor editor editor editor editor editor editor booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle date
+tgt:  author author author author author author author author author author author title title title editor editor editoreditor editor editor editor booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle booktitle date
+src:  author author author author author author title title title title title title journal journal volume pages date
+tgt:  author author author author author author title title title title title title journal journal volume pages date
+Average estimator logit likelyhood is -80.44978854578937.
+Average f1 is 0.9166892806881518.

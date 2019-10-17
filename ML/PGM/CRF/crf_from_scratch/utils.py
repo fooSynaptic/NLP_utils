@@ -30,7 +30,7 @@ def tokenfeatures(word):
     ### 4
     fsymolic = re.findall('[^a-zA-Z0-9]', word)
     if len(fsymolic) > 0:
-        features.extend(["contains" + c for c fsymolic])
+        features.extend(["contains" + c for c in fsymolic])
     return features
 
 

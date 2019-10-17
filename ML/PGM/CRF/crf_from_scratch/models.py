@@ -90,8 +90,7 @@ class linearChainCRF():
         g0, g = self.currentField(x)
         a = self.forward(g0, g, N, K)
         logZ = logsumexp(a[N-1, :])
-        #return sum(W[k] for k in targetLabel) - logZ
-        return sum(W[idx[0], idx[1]] for idx in targetLabel) - logZ
+        return sum(W[k] for k in targetLabel) - logZ
 
 
     def forward(self, g0, g, N, K):
@@ -155,7 +154,7 @@ class linearChainCRF():
                 for y in range(K):
                    prob = float(ei[yp, y])
                    for k in x[t, yp, y]:
-                       ans[tuple(k)] = ans.get(k, 0.) + prob
+                       ans[k] = ans.get(k, 0.) + prob
 
         return ans
 
@@ -185,9 +184,9 @@ class linearChainCRF():
                 ftoken = FeatureTable(x, self.featureNodes, self.labelNodes)
                 flabel = self.edgefeatures(ftoken, [self.labelNodes[label] for label in labels])
                 for k, explogit in self.Exp(ftoken).items():
-                    W[k[0], k[1]] -= lr_rate * explogit
+                    W[k] -= lr_rate * explogit
                 for k in flabel:
-                    W[k[0], k[1]] += lr_rate
+                    W[k] += lr_rate
 
         if saveParam:
             if not os.path.exists(modelpath):

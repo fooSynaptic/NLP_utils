@@ -93,7 +93,7 @@ def run():
     revlabelmapPath = os.path.join(model_path, 'rev_labelmap.pkl')
 
     train(train_data, attr2id, label2id, id2label, model_path, \
-        [labelmapPath, revlabelmapPath, featuremapPath], epochs= 5)
+        [labelmapPath, revlabelmapPath, featuremapPath], epochs= 1)
 
 
     evaluate(eval_data, featuremapPath, labelmapPath, revlabelmapPath, model_path)

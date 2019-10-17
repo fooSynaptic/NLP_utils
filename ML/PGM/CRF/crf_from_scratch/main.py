@@ -36,7 +36,7 @@ def train(train_data, featrue2id, label2id, id2label, model_path, perpetualpath 
 
 def evaluate(eval_data, fearure2idPath, label2idPath, id2labelPath, model_path, verbose = False):
     """eval model"""
-    crf.W[:] = joblib.load(os.path.join(model_path, 'crf_w.pkl'))
+    crf.W[:] = joblib.load(os.path.join(model_path, 'crf_W.pkl'))
     label2id, attr2id, id2label = joblib.load(label2idPath), \
                                 joblib.load(fearure2idPath), \
                                 joblib.load(id2labelPath)

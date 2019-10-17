@@ -38,7 +38,7 @@ def train(train_data, featrue2id, label2id, id2label, model_path, perpetualpath 
 
 def evaluate(eval_data, fearure2idPath, label2idPath, id2labelPath, model_path, verbose = False):
     """eval model"""
-    crf.W[:] = joblib.load(os.path.join(model_path, 'crf_w.pkl'))
+    crf.W[:] = joblib.load(os.path.join(model_path, 'crf_W.pkl'))
     label2id, attr2id, id2label = joblib.load(label2idPath), \
                                 joblib.load(fearure2idPath), \
                                 joblib.load(id2labelPath)
@@ -74,7 +74,8 @@ def evaluate(eval_data, fearure2idPath, label2idPath, id2labelPath, model_path, 
 def run():
     data = load_data('dataset/train_data.txt', proportion=0.1)[:50]
 
-    p = int(len(data) * 0.9)
+    #p = int(len(data) * 0.9)
+    p = 45
     train_data, eval_data = data[:p], data[p:]
     print("train sample num: {}, test samples num: {}".format(len(train_data), len(eval_data)))
 

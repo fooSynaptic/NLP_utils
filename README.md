@@ -1,5 +1,5 @@
 # NLP_utils
-Modules for NLP programming and machine learning implementation that i cannot live out with.
+NLP programming and machine learning implementations.
 
 ***Machine learning from scratch***
 ---

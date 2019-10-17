@@ -9,6 +9,8 @@ from numpy import empty, zeros, ones, log, exp, add, int32
 from numpy.random import uniform
 from utils import *
 import os
+import random
+random.seed(1234)
 
 from sklearn.externals import joblib
 from tqdm import tqdm
@@ -20,14 +22,13 @@ from tqdm import tqdm
 class linearChainCRF():
     def __init__(self, xnode, ynode):
         """
-        K: the length of labels
-        M: the length of features
+        xnode: the mapping from observation features to int
+        ynode: the mapping from target label to int
         """
         self.K = len(ynode)              # size of target label
         self.M = len(xnode)	        # total feature dimension length
         self.featureNodes, self.labelNodes = xnode, ynode
-        size = (self.K + self.M) * self.K
-        self.W = np.zeros(size)
+        self.W = np.zeros((self.M, self.K))
         print("feature dimension: ", self.W.shape)
 
     
@@ -42,13 +43,13 @@ class linearChainCRF():
 
         for y in range(K):
             # at step 0, the logit of label k (from time -1)
-            g0[y] = W[x[0, None, y]].sum()
+            g0[y] = sum(W[idx[0], idx[1]] for idx in x[0, None, y])
+            #g0[y] = W[x[0, None, y]].sum()
 
-        
         for t in range(1, N):
             for y in range(K):
                 for yp in range(K):
-                    g[t-1,yp,y] = W[x[t,yp,y]].sum()
+                    g[t-1,yp,y] = sum(W[idx[0], idx[1]] for idx in x[t, yp, y])
 
         return g0, g
 
@@ -89,7 +90,8 @@ class linearChainCRF():
         g0, g = self.currentField(x)
         a = self.forward(g0, g, N, K)
         logZ = logsumexp(a[N-1, :])
-        return sum(W[k] for k in targetLabel) - logZ
+        #return sum(W[k] for k in targetLabel) - logZ
+        return sum(W[idx[0], idx[1]] for idx in targetLabel) - logZ
 
 
     def forward(self, g0, g, N, K):
@@ -120,7 +122,6 @@ class linearChainCRF():
     def Exp(self, x):
         """expectation of x"""
         N = x.seq.__len__()
-        W = self.W
         K = self.K
 
         g0, g = self.currentField(x)
@@ -154,7 +155,7 @@ class linearChainCRF():
                 for y in range(K):
                    prob = float(ei[yp, y])
                    for k in x[t, yp, y]:
-                       ans[k] = ans.get(k, 0.) + prob
+                       ans[tuple(k)] = ans.get(k, 0.) + prob
 
         return ans
 
@@ -165,12 +166,12 @@ class linearChainCRF():
         for our raw input t1, t2, t3, t4 ...
         transfer the token sequence information into {f1, ... ft}1, {f1, ... ft}2
         """
-        features = list(x[0, None, y[0]])
         assert len(x.seq) == len(y), "seq to label not alignmentted..."
-
+        features = list(x[0, None, y[0]])   #tuple list
+        
         for t in range(1, x.seq.__len__()):
-            for i in x[t, y[t-1], y[t]]:
-                features.append(i)
+            for idx in x[t, y[t-1], y[t]]:
+                features.append(idx)
 
         return features
 
@@ -184,9 +185,9 @@ class linearChainCRF():
                 ftoken = FeatureTable(x, self.featureNodes, self.labelNodes)
                 flabel = self.edgefeatures(ftoken, [self.labelNodes[label] for label in labels])
                 for k, explogit in self.Exp(ftoken).items():
-                    W[k] -= lr_rate * explogit
+                    W[k[0], k[1]] -= lr_rate * explogit
                 for k in flabel:
-                    W[k] += lr_rate
+                    W[k[0], k[1]] += lr_rate
 
         if saveParam:
             if not os.path.exists(modelpath):

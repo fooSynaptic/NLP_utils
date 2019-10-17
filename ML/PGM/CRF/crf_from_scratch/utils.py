@@ -11,15 +11,28 @@ import numpy as np
 
 
 
-
 def tokenfeatures(word):
     """ Obsevation state features """
-    f1 = "token==" + word
+    features = []
+
+    ### 1
+    features.append("token==" + word)
+
+    ### 2
     mid = len(word)//2
-    f2, f3 = 'Swith+'+word[:mid], 'Ewith+'+word[mid:]
-    f4 = 'abbre==' + re.sub('[0-9]', '0', re.sub('[^a-zA-Z0-9()\.\,]', '', word.lower()))
-    f5 = ["contains" + c for c in re.findall('[^a-zA-Z0-9]', word)]
-    return [f1, f2, f3, f4] + f5
+    if mid > 0:
+        features.append('Swith+'+word[:mid])
+        features.append('Ewith+'+word[mid:])
+    
+    ### 3
+    features.append('abbre==' + re.sub('[0-9]', '0', re.sub('[^a-zA-Z0-9()\.\,]', '', word.lower())))
+
+    ### 4
+    fsymolic = re.findall('[^a-zA-Z0-9]', word)
+    if len(fsymolic) > 0:
+        features.extend(["contains" + c for c fsymolic])
+    return features
+
 
 
 
@@ -71,8 +84,6 @@ def load_data(path, proportion=0.1):
     return data[:int(proportion * len(data))]
 
 
-#s = load_data('./data/tagged_references.txt')[:10]
-
 
 def updateFieldNode(data):
     """Loading feature map configure"""
@@ -82,7 +93,7 @@ def updateFieldNode(data):
         attributes.update(word for line in ftoken for word in line)
 
     attributes.update(['seqStart', 'seqEnd'])
-    label2id, attr2id = {}, {}
+    label2id, attr2id = dict(), dict()
     for _id, label in enumerate(labels):
         label2id[label] = _id
 
@@ -120,10 +131,32 @@ class FeatureTable():
     def __getitem__(self, item):
         t, yp, y = item
         ftoken = self.seq[t]
+        if yp is not None: 
+            ftoken = np.append(ftoken, yp)
+
+        return [(f, y) for f in ftoken]
+        
+        
+
+
+
+
+'''
+class FeatureTable():
+    def __init__(self, tokenlist, xnode, ynode):
+        self.seq = []
+        for tokenfeatures in tokenlist:
+            # tokenfeatures[0] is the raw token, others are token attributes.
+            self.seq.append(np.array([xnode[f] for f in tokenfeatures], dtype=np.int32))
+
+        self.xdim, self.ydim = len(xnode), len(ynode)
+
+    def __getitem__(self, item):
+        t, yp, y = item
+        ftoken = self.seq[t]
         if yp is not None:
             return np.append(ftoken, yp) + y*self.xdim
         else:
             return ftoken + y*self.xdim
-
-        
+'''
 

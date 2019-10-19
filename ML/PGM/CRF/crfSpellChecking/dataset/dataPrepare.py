@@ -4,6 +4,7 @@ from jieba import cut
 import numpy as np
 from sklearn.externals import joblib
 from random import sample, randint
+from collections import defaultdict
 
 
 
@@ -47,9 +48,7 @@ def preprocess(datapath):
 
 
 
-
-
-def generateTraindata(spellerrorFlod = 3, Spelling = 'word'):
+def generateTraindata(spellerrorFlod = 4, Spelling = 'word'):
     src_data = [line.strip() for line in open('rawdata.txt').readlines()]
     tgt_data = []
 

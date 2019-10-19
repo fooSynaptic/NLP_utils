@@ -7,12 +7,11 @@ import math
 logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                         datefmt='%a, %d %b %Y %H:%M:%S',
-                        #filename='/home/URL/client/test_log.log',
                         filemode='a')
 
 
 
-MEDICAL_DB = '/Users/ajmd/code/Py_utils/data/THUOCL_medical.txt'
+MEDICAL_DB = '../data/THUOCL_medical.txt'
 
 
 def bleu(pred_tokens, label_tokens):
@@ -38,6 +37,7 @@ def EditDis(src, tgt):
     for i in range(0, len1):
         for j in range(0, len2):
             dp[i][j] = float('inf')
+
     #condition 1: from empty string to len-i or len-j, dp-val = i or j
     for i in range(0, len1):
         dp[i, 0] = i
@@ -54,8 +54,8 @@ def EditDis(src, tgt):
     return dp[len1-1, len2-1]
 
 
-#print(EditDis('胃食管反留' ,'胃食管反流'))
-#print(EditDis('胃食管反留' ,'严重性胃病'))
+print(EditDis('胃食管反留' ,'胃食管反流'))
+print(EditDis('胃食管反留' ,'严重性胃病'))
 
 
 class corrector():
@@ -102,7 +102,7 @@ def testcase():
     for word in candidates:
         logging.info(Optimizer.correct(word))
 
-#testcase()
+testcase()
 '''
 testcase()
 #Optimizer = corrector(MEDICAL_DB)

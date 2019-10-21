@@ -60,7 +60,7 @@ print("Loading dataset...")
 
 import os
 
-data_samples = [x.strip() for x in open('/Users/ajmd/code/nlp_project/text_multip_class/summer_result.txt').readlines()]
+data_samples = [x.strip() for x in open('./summer_result.txt').readlines()]
 
 # Use tf-idf features for NMF.
 print("Extracting tf-idf features for NMF...")

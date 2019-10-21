@@ -16,7 +16,7 @@ n_features = 1000
 n_components = 77
 n_top_words = 10
 
-stopwords = [x.strip() for x in open('/Users/ajmd/Desktop/stopwords.txt')\
+stopwords = [x.strip() for x in open('./stopwords.txt')\
       .readlines()]
 
 stopwords += '你好 您好 一个 两个 今天 明天 上次 昨天 现在 一次 不是 \

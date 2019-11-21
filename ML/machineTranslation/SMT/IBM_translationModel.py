@@ -30,7 +30,6 @@ def IBM_TransModel(transPairs, srcvocabs, tgtvocabs, srcMapper, tgtMapper):
     ## initialize t(e|f) uniformly
     transProb = np.random.rand(src_vocabSize, tgt_vocabSize)
 
-
     for epoch in range(20):
         print("epochs: ", epoch)
         Cnt = np.zeros([src_vocabSize, tgt_vocabSize])
@@ -87,12 +86,12 @@ def tokenization(line, mode = None):
         return line.split()
 
 
-def translate(model, line, srcmapper, tgtmapper):
-    #seq = [srcmapper[x] for x in line]
+def translate(model, line, srcmapper, tgtmapper, unknowToken = "."):
+    seq = [(srcmapper[x] if x in srcmapper else srcmapper[unknowToken]) for x in line]
 
     result = []
-    for word in line:
-        srctoken = srcmapper[word]
+    for word in seq:
+        srctoken = word
         ## greedy
         tgttoken = tgtmapper[np.argmax(model[srctoken, :])]
         result.append(tgttoken)
@@ -118,7 +117,7 @@ def bleu(pred_tokens, label_tokens, k):
 
 def train():
     src_file = "./data/en-zh/train.tags.en-zh.en"
-    tgt_file = "./data/en-zh/train.tags.en-zh.zh"
+    tgt_file = "./data/data/NMT/en-zh/train.tags.en-zh.zh"
 
     rawSrc = [tokenization(line, mode = 'en') for line in open(src_file).readlines() if not line.startswith('<')]
     rawTgt = [tokenization(line, mode = 'zh') for line in open(tgt_file).readlines() if not line.startswith('<')]
@@ -148,8 +147,12 @@ def train():
     Ttrain = [[tgt2id[word] for word in line] for line in T]
 
 
-    ### train
-    model = IBM_TransModel([Strain, Ttrain], srcvocabs, tgtvocabs, src2id, tgt2id)
+    if not os.path.exists("ibmModel.pkl"):
+        ### train
+        model = IBM_TransModel([Strain, Ttrain], srcvocabs, tgtvocabs, src2id, tgt2id)
+        joblib.dump(model, "ibmModel.pkl")
+    else:
+        model = joblib.load("ibmModel.pkl")
 
     ### translate(inference)
     resM = np.zeros([1000, 4])
@@ -164,13 +167,14 @@ def train():
         resM[i][3] = b4
 
     print("eval result:", np.mean(resM, axis=0))
-    joblib.dump(model, "ibmModel.pkl")
+    #joblib.dump(model, "ibmModel.pkl")
 
 
 
 
 if __name__ == "__main__":
     train()
+
 
 
 

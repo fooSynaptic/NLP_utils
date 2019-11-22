@@ -6,6 +6,7 @@
 整个目标是通过EM算法学习IBM model中的transition prob参数，
 通过EM算法，可以在迭代统计平行语料的过程中，不断计算概率 t(e|f) 的似然概率，
 并更新到参数中，以达到学习整个参数中最大alignment对应最大概率的目的.
+- ref: http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/ibm12.pdf
 """
 
 import numpy as np

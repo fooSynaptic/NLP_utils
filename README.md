@@ -8,7 +8,7 @@ NLP programming and machine learning implementations.
 - [Various Optimization algo Implemented in LR(from sgd to adam).](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/regression/optimizer.py)
 - [Crf implement from scratch(f1 = 0.916 over reference tagging dataset from https://people.cs.umass.edu/~mccallum/data.html).](https://github.com/fooSynaptic/NLP_utils/tree/master/ML/PGM/CRF/crf_from_scratch)
 - [Chinese sentence sepll checking with CRF labeling.](https://github.com/fooSynaptic/NLP_utils/tree/master/ML/PGM/CRF/crfSpellChecking)
-- [IBM translation model-1](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/machineTranslation/SMT/IBM_translationModel.py)
+- [IBM translation model-1(bleu=0.33904387).](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/machineTranslation/SMT/IBM_translationModel.py)
 
 
 

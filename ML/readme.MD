@@ -1,4 +1,4 @@
-***This page we will realize some maching learning algorithm from scrath.***
+***This page we will implement some maching learning algorithm from scrath.***
 
 # Chapter 4: Experiments
 - We sample a unifrom distribution from multi-binominal distribution by Gibbs sampling.

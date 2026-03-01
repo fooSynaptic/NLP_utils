@@ -1,81 +1,203 @@
-# NLP_utils
-NLP programming and machine learning implementations.
+# NLP Utils
 
-***Machine learning from scratch***
----
-- [Linear regression with parameter learn by Gradient descent.](https://github.com/fooSynaptic/Py_utils/blob/master/ML/regression/linearRegression.py)
-- [Conditional Random Field(CRF) probability solving Implementation.](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/PGM/CRF/crfProb_logit.py)
-- [Various Optimization algo Implemented in LR(from sgd to adam).](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/regression/optimizer.py)
-- [Crf implement from scratch(f1 = 0.916 over reference tagging dataset from https://people.cs.umass.edu/~mccallum/data.html).](https://github.com/fooSynaptic/NLP_utils/tree/master/ML/PGM/CRF/crf_from_scratch)
-- [Chinese sentence spell checking with CRF labeling.](https://github.com/fooSynaptic/NLP_utils/tree/master/ML/PGM/CRF/crfSpellChecking)
-- [IBM translation model-1(bleu=0.33904387).](https://github.com/fooSynaptic/NLP_utils/blob/master/ML/machineTranslation/SMT/IBM_translationModel.py)
+A collection of utility functions and tools for Natural Language Processing tasks.
 
+## Description
 
+This repository provides a set of reusable NLP utilities designed to simplify common text processing tasks. It serves as a personal toolkit for various NLP projects, offering modular, well-documented functions that can be easily integrated into larger applications.
 
+## Features (Planned)
 
+- **Text Preprocessing**: Cleaning, tokenization, normalization
+- **Feature Extraction**: TF-IDF, word embeddings, n-grams
+- **Text Analysis**: Sentiment analysis, keyword extraction, text statistics
+- **Data Utilities**: Data loading, format conversion, batch processing
+- **Visualization**: Text visualization tools
 
-# Update edit distance spell checking for Medical words
-- run `python edit_distance.py`
-- run `python spell.py`
-
-**Test case:**
-```
-def testcase():          
-    candidates = ['性疾病', '血管疾病', '性肝病']
-    for word in candidates:
-        logging.info(Optimizer.correct(word))
-
-testcase()
-
-logging.info(Optimizer.correct('胃食管反*'))
-logging.info(Optimizer.correct('*子鉴定'))
-logging.info(Optimizer.correct('子鉴定'))
-logging.info(Optimizer.correct('囊恶性肿瘤'))
-logging.info(Optimizer.correct('他定类**'))
-logging.info(Optimizer.correct('*他定'))
-logging.info(Optimizer.correct('**他定'))
-```
-**Result:**
-```
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 药源性疾病
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 心脑血管疾病
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:103] INFO 慢性肝病
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:107] INFO 胃食管反流
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:108] INFO 亲子鉴定
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:109] INFO 亲子鉴定
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:110] INFO 精囊恶性肿瘤
-Tue, 02 Apr 2019 17:26:03 edit_distance.py[line:111] INFO 奥洛他定滴眼液
-Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:112] INFO 头孢他定
-Tue, 02 Apr 2019 17:26:04 edit_distance.py[line:113] INFO 头孢他定
-```
-
-# Update classfication based on Naive bayes.
-- run `python bayesian.py`
-**Result**
+## Project Structure
 
 ```
-If we start from state of 1
-The condition when 1 -> 2 -> S happend with prob of 0.04
-If we start from state of -1
-The condition when -1 -> 2 -> S happend with prob of 0.06
-The most likely feature of fearure_3 with f1 and f2 is -1
+NLP_utils/
+├── README.md           # This file
+├── nlp_utils/          # Main package
+│   ├── __init__.py
+│   ├── preprocessing.py    # Text cleaning and preprocessing
+│   ├── tokenization.py     # Tokenization utilities
+│   ├── embeddings.py       # Word embedding tools
+│   ├── features.py         # Feature extraction
+│   ├── similarity.py       # Text similarity measures
+│   └── visualization.py    # Text visualization
+├── tests/              # Unit tests
+│   ├── __init__.py
+│   └── test_*.py
+├── examples/           # Usage examples
+│   └── example_usage.py
+├── docs/               # Documentation
+├── requirements.txt    # Dependencies
+└── setup.py           # Package setup
 ```
 
-# Update KD-tree for cluster algorithm
-- usage: `python ./ML/KD_tree.py`
+## Installation
 
-demo:
+### Prerequisites
+
+- Python 3.6+
+- Dependencies: numpy, pandas, scikit-learn, nltk, spaCy
+
+### Setup
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd NLP_utils
 ```
-The levels denote the tree depth, same level means they stay in parallel,'
-'    and the next level denote the parent and child information, in our code,'
-     for two stacked node, right node first and left node second...
- level0  level1  level2  level3  level4  level5
- False
-         [[5 4]]
-                 [[2 3]](right node of (5, 4))
-                 [[4 7]](left node of (5, 4))
-         [[7 2]]
-                 [[8 1]]
-                 [[9 6]]
- ```
- - You can try it with differnt test_data as well as more dimension
+
+2. Install the package:
+```bash
+pip install -e .
+```
+
+Or install dependencies manually:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Text Preprocessing
+
+```python
+from nlp_utils.preprocessing import clean_text, normalize_text
+
+# Clean text
+text = "Your raw text here! Check out https://example.com"
+cleaned = clean_text(text, remove_urls=True, remove_punctuation=True)
+
+# Normalize text
+normalized = normalize_text(cleaned, lowercase=True, lemmatize=True)
+```
+
+### Tokenization
+
+```python
+from nlp_utils.tokenization import word_tokenize, sentence_tokenize
+
+words = word_tokenize("This is a sample sentence.")
+sentences = sentence_tokenize("First sentence. Second sentence.")
+```
+
+### Feature Extraction
+
+```python
+from nlp_utils.features import extract_tfidf, extract_ngrams
+
+# TF-IDF vectorization
+vectorizer, vectors = extract_tfidf(documents, max_features=1000)
+
+# N-gram extraction
+ngrams = extract_ngrams(text, n=2)
+```
+
+### Text Similarity
+
+```python
+from nlp_utils.similarity import cosine_similarity, jaccard_similarity
+
+similarity = cosine_similarity(text1, text2)
+```
+
+## Module Details
+
+### preprocessing.py
+
+Functions for cleaning and normalizing text:
+- `clean_text()`: Remove unwanted characters, URLs, emails
+- `normalize_text()`: Lowercase, lemmatize, stem
+- `remove_stopwords()`: Filter out common stopwords
+- `fix_encoding()`: Handle encoding issues
+
+### tokenization.py
+
+Tokenization utilities:
+- `word_tokenize()`: Split text into words
+- `sentence_tokenize()`: Split text into sentences
+- `character_tokenize()`: Character-level tokenization
+- `subword_tokenize()`: BPE or WordPiece tokenization
+
+### embeddings.py
+
+Word embedding tools:
+- `load_glove()`: Load GloVe embeddings
+- `load_word2vec()`: Load Word2Vec model
+- `get_embeddings()`: Extract embeddings for text
+- `compute_similarity_matrix()`: Word similarity matrix
+
+### features.py
+
+Feature extraction methods:
+- `extract_tfidf()`: TF-IDF features
+- `extract_ngrams()`: N-gram features
+- `extract_pos_tags()`: Part-of-speech features
+- `extract_named_entities()`: NER features
+
+### similarity.py
+
+Text similarity measures:
+- `cosine_similarity()`: Cosine similarity
+- `jaccard_similarity()`: Jaccard similarity
+- `levenshtein_distance()`: Edit distance
+- `semantic_similarity()`: Embedding-based similarity
+
+## Testing
+
+Run tests with pytest:
+
+```bash
+pytest tests/
+```
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-utility`)
+3. Commit your changes (`git commit -am 'Add new utility'`)
+4. Push to the branch (`git push origin feature/new-utility`)
+5. Create a Pull Request
+
+## Future Enhancements
+
+- [ ] Add support for multilingual text processing
+- [ ] Integrate transformer-based utilities
+- [ ] Add benchmarking tools
+- [ ] Create comprehensive documentation
+- [ ] Add Jupyter notebook tutorials
+
+## Dependencies
+
+Core dependencies:
+- numpy
+- pandas
+- scikit-learn
+- nltk
+- spacy
+- gensim
+
+Optional dependencies:
+- transformers (for BERT utilities)
+- matplotlib (for visualization)
+- jieba (for Chinese text processing)
+
+## License
+
+[License information to be added]
+
+## Contact
+
+For questions or suggestions, please open an issue on this repository.
+
+## Acknowledgments
+
+- NLTK and spaCy communities for excellent NLP tools
+- scikit-learn for machine learning utilities

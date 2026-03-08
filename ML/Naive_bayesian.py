@@ -67,7 +67,7 @@ def naive_bayes_classfication(data, f1, f2):
 
 
 
-bayes_classfication(train_table, 2, 'S')
+naive_bayes_classfication(train_table, 2, 'S')
 
 
 

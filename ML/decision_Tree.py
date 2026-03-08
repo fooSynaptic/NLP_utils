@@ -201,16 +201,16 @@ class ID3Base:
 
 
 if __name__ == '__main__':
-    _data, _x, _y = [], [], []
-    with open(<path>) as file:
-        for line in file:
-            _data.append(line.split(","))
-    np.random.shuffle(_data)
-    for line in _data:
-        _y.append(line.pop(0))
-        _x.append(line)
-    _x, _y = np.array(_x), np.array(_y)
-    train_num = 5000
+    # Example usage with synthetic data
+    np.random.seed(42)
+    n_samples = 1000
+    n_features = 5
+    
+    # Generate synthetic data
+    _x = np.random.randn(n_samples, n_features).tolist()
+    _y = [1 if sum(x[:2]) > 0 else 0 for x in _x]
+    
+    train_num = 800
     x_train = _x[:train_num]
     y_train = _y[:train_num]
     x_test = _x[train_num:]

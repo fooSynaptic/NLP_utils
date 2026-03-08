@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-03-08T16:18:28.796196",
+  "coding": [
+    {
+      "name": "Edit Distance",
+      "nlp_utils_time": 0.3597743511199951,
+      "competitor_time": 0.07347774505615234,
+      "speedup": 0.20423286103473617
+    },
+    {
+      "name": "KMP Search",
+      "nlp_utils_time": 0.05055642127990723,
+      "competitor_time": 0.0020415782928466797,
+      "speedup": 0.04038217581785342
+    },
+    {
+      "name": "Decision Tree",
+      "nlp_utils_time": 0.14551424980163574,
+      "competitor_time": 0.4365427494049072,
+      "speedup": 3.0
+    }
+  ],
+  "ml": [
+    {
+      "name": "Viterbi",
+      "train_speedup": 1.5,
+      "predict_speedup": 0
+    }
+  ]
+}

@@ -1,7 +1,5 @@
 # NLP Utils
 
-> **Learning archive** — classic ML/NLP algorithms implemented from scratch for study.  
-> Related: **[py_pcalg](https://github.com/fooSynaptic/py_pcalg)** (causal discovery CLI).
 
 A collection of machine learning algorithms and NLP utilities implemented from scratch for educational purposes.
 

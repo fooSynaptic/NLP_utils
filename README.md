@@ -1,6 +1,10 @@
 # NLP Utils
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Status: Archive](https://img.shields.io/badge/status-learning%20archive-lightgrey.svg)](https://github.com/fooSynaptic/py_pcalg)
+
+> **Learning archive** — classic ML/NLP algorithms implemented from scratch for study.  
+> For a maintained, pip-installable tool, see **[py_pcalg](https://github.com/fooSynaptic/py_pcalg)** (causal discovery CLI).
 
 A collection of machine learning algorithms and NLP utilities implemented from scratch for educational purposes.
 
